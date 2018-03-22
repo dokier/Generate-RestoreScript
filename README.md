@@ -18,9 +18,13 @@ None
   restore_yyyyMMddHHmmss.sql file is stored in the same path as the powershell script.
   
 # Notes
+
   Version:        1.0
+  
   Author:         Daniel Berber
+  
   Creation Date:  2018-03-22
+  
   Purpose/Change: Easy way to generate restore script with relocation (WITH MOVE)
   
 # Example
