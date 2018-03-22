@@ -6,8 +6,10 @@ Simple PowerShell script to generate a restore script with relocation.
   This simple script generates a restore script output with relocation by getting the latest full backup information from your source sql instance and getting the default data and log path from destination.
 # Parameters 
 Source
+
     Source SQL Instance - The script will query msdb to get the latest full backup information.
 Destination
+
     Destination SQL Instance - The script gets the default data and log path from the destination server and generates a restore script output with relocation.
     
 # Inputs
@@ -22,4 +24,5 @@ None
   Purpose/Change: Easy way to generate restore script with relocation (WITH MOVE)
   
 # Example
-  Generate-RestoreScript -Source SQLServerSource\Instance1 -Destination SQLServerDest\Instance1
+  
+    Generate-RestoreScript -Source SQLServerSource\Instance1 -Destination SQLServerDest\Instance1
