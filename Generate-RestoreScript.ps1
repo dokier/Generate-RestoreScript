@@ -73,8 +73,7 @@ ORDER BY [Database]"
 
 
  $LastBackup | ForEach-Object { 
-     $smoRestoreDBFile = New-Object("Microsoft.SqlServer.Management.Smo.RelocateFile, Microsoft.SqlServer.SmoExtended, Version=$sqlServerSnapinVersion, Culture=neutral, PublicKeyToken=89845dcd8080cc91") 
-     $smoRestoreLogFile = New-Object("Microsoft.SqlServer.Management.Smo.RelocateFile, Microsoft.SqlServer.SmoExtended, Version=$sqlServerSnapinVersion, Culture=neutral, PublicKeyToken=89845dcd8080cc91")   
+     
      $smoRestore = new-object("Microsoft.SqlServer.Management.Smo.Restore") 
 
      $backupDeviceItem = new-object Microsoft.SqlServer.Management.Smo.BackupDeviceItem $_.BackupFileLocation, 'File';
@@ -82,6 +81,9 @@ ORDER BY [Database]"
      $smoRestore.Devices.Add($backupDeviceItem)
 
      foreach ($dbfile in $smoRestore.ReadFileList($smoserver)){
+
+     $smoRestoreDBFile = New-Object("Microsoft.SqlServer.Management.Smo.RelocateFile, Microsoft.SqlServer.SmoExtended, Version=$sqlServerSnapinVersion, Culture=neutral, PublicKeyToken=89845dcd8080cc91") 
+     $smoRestoreLogFile = New-Object("Microsoft.SqlServer.Management.Smo.RelocateFile, Microsoft.SqlServer.SmoExtended, Version=$sqlServerSnapinVersion, Culture=neutral, PublicKeyToken=89845dcd8080cc91")   
 
      $DBFileName = $dbfile.PhysicalName | Split-Path -Leaf
         if($dbfile.Type -eq 'L'){
