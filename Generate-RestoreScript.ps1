@@ -82,8 +82,8 @@ ORDER BY [Database]"
 
      foreach ($dbfile in $smoRestore.ReadFileList($smoserver)){
 
-     $smoRestoreDBFile = New-Object("Microsoft.SqlServer.Management.Smo.RelocateFile, Microsoft.SqlServer.SmoExtended, Version=$sqlServerSnapinVersion, Culture=neutral, PublicKeyToken=89845dcd8080cc91") 
-     $smoRestoreLogFile = New-Object("Microsoft.SqlServer.Management.Smo.RelocateFile, Microsoft.SqlServer.SmoExtended, Version=$sqlServerSnapinVersion, Culture=neutral, PublicKeyToken=89845dcd8080cc91")   
+     $smoRestoreDBFile = New-Object("Microsoft.SqlServer.Management.Smo.RelocateFile")
+     $smoRestoreLogFile = New-Object("Microsoft.SqlServer.Management.Smo.RelocateFile")
 
      $DBFileName = $dbfile.PhysicalName | Split-Path -Leaf
         if($dbfile.Type -eq 'L'){
